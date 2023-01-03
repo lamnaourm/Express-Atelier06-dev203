@@ -39,8 +39,8 @@ routes.post("/add", (req, res) => {
   });
 });
 
-routes.put("/update/:name", async (req, res) => {
-  await ActorModel.findOne({ name: req.params.name }, (err, actor) => {
+routes.put("/update/:name", (req, res) => {
+  ActorModel.findOne({ name: req.params.name }, (err, actor) => {
     if (!err && actor == null) return res.sendStatus(404);
 
     ActorModel.updateOne({ name: req.params.name }, req.body, (err, actor) => {
@@ -50,8 +50,8 @@ routes.put("/update/:name", async (req, res) => {
   });
 });
 
-routes.delete("/delete/:name", async (req, res) => {
-  await ActorModel.findOne({ name: req.params.name }, (err, actor) => {
+routes.delete("/delete/:name", (req, res) => {
+  ActorModel.findOne({ name: req.params.name }, (err, actor) => {
     if (!err && actor == null) return res.sendStatus(404);
 
     ActorModel.deleteOne({ name: req.params.name }, (err, actor) => {

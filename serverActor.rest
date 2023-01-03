@@ -28,3 +28,6 @@ Content-Type: application/json
     "birthdate": "1966-09-09",
     "birthplace": "sd York, dsd States"
 }
+
+### 
+DELETE http://localhost:3000/actor/delete/dsd sdsddsd
