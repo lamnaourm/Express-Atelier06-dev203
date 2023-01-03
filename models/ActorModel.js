@@ -8,6 +8,6 @@ const ActorSchema = new Schema({
     birthplace: String,
     died: String, 
     restingplace:String
-})
+}, {collection: "actors"})
 
-module.exports = mongoose.model("actors", ActorSchema) 
+module.exports = mongoose.model("actors", ActorSchema, "actors") 
