@@ -15,4 +15,15 @@ routes.get('/all', (req, res) => {
     
 })
 
+routes.get('/names', (req, res) => {
+
+    movieModel.distinct("name", (err, actors) => {
+        if(!err)
+            res.status(201).json(actors);
+        else 
+            res.status(507).json({message: err})
+    })
+})
+
+
 module.exports = routes

@@ -1,3 +1,4 @@
-GET http://localhost:3000/actor/all
+GET http://localhost:3000/movie/all
 
 ### 
+GET http://localhost:3000/movie/names

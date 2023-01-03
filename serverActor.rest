@@ -1,3 +1,30 @@
 GET http://localhost:3000/actor/all
 
 ### 
+GET http://localhost:3000/actor/names
+
+### 
+GET http://localhost:3000/actor/movies
+
+
+### 
+POST http://localhost:3000/actor/add
+Content-Type: application/json
+
+{
+    "name": "dsd sdsddsd",
+    "birthname": "Adam Richard Sandler",
+    "birthdate": "1966-09-09",
+    "birthplace": "sd York, dsd States"
+}
+
+###
+PUT http://localhost:3000/actor/update/dsd sdsddsd
+Content-Type: application/json
+
+{
+    "name": "dsd sdsddsd",
+    "birthname": "bnbnbnbnbnbn",
+    "birthdate": "1966-09-09",
+    "birthplace": "sd York, dsd States"
+}
