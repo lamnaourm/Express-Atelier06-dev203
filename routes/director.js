@@ -34,4 +34,34 @@ routes.get('/movies', (req, res) => {
     })
 })
 
+routes.post("/add", (req, res) => {
+    const director = new DirectorModel(req.body);
+    director.save((err, director) => {
+      if (!err) res.status(201).json(director);
+      else res.status(507).json({ message: err });
+    });
+  });
+  
+  routes.put("/update/:name", (req, res) => {
+    DirectorModel.findOne({ name: req.params.name }, (err, director) => {
+      if (!err && director == null) return res.sendStatus(404);
+  
+      DirectorModel.updateOne({ name: req.params.name }, req.body, (err, director) => {
+        if (!err) res.status(202).json(director);
+        else res.status(507).json({ message: err });
+      });
+    });
+  });
+  
+  routes.delete("/delete/:name", (req, res) => {
+    DirectorModel.findOne({ name: req.params.name }, (err, director) => {
+      if (!err && director == null) return res.sendStatus(404);
+  
+      DirectorModel.deleteOne({ name: req.params.name }, (err, director) => {
+        if (!err) res.status(202).json(director);
+        else res.status(507).json({ message: err });
+      });
+    });
+  });
+
 module.exports = routes
